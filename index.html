@@ -8,6 +8,8 @@
         html,
         body {
             width: 100%;
+            padding: 0;
+            margin: 0;
         }
 
         body {
@@ -279,7 +281,7 @@
 </div>
 <script>
     window.onload = function(){
-        //屏蔽键盘事件
+        
         document.onkeydown = function (){
             var e = window.event || arguments[0];
             //F12
@@ -296,7 +298,7 @@
                 return false;
             }
         };
-        //屏蔽鼠标右键
+        
         document.oncontextmenu = function (){
             return false;
         }
