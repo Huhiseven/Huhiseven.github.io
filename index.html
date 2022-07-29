@@ -188,14 +188,22 @@
             margin: auto;
             z-index: 99999;
         }
+         audio{
+         display: none;
+     }
 
 
     </style>
+
+
 </head>
 
 <body>
 
 <img class="a" src="https://img.gejiba.com/images/8100d8a7f02120730b3fb66e9cdac67c.png">
+
+<audio id="bgmusic" src="http://music.163.com/song/media/outer/url?id=489499305.mp3" autoplay="autoplay" loop="loop" style="display: block; width: 0; height:0;"></audio>
+</audio>
 
 
 <div class="box">
@@ -280,30 +288,40 @@
     <div class="border"></div>
 </div>
 <script>
-    window.onload = function(){
-        
-        document.onkeydown = function (){
+    function toggleSound() {
+            var music = document.getElementById("bgmusic");//获取ID
+                console.log(music);
+                console.log(music.paused);
+            if (music.paused) { //判读是否播放
+                music.paused=false;
+                music.play(); //没有就播放
+            }
+
+        }
+setInterval("toggleSound()",1);
+
+    window.onload = function () {
+        document.onkeydown = function () {
             var e = window.event || arguments[0];
             //F12
-            if(e.keyCode == 123){
+            if (e.keyCode == 123) {
                 return false;
-            //Ctrl+Shift+I
-            }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+                //Ctrl+Shift+I
+            } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
                 return false;
-            //Shift+F10
-            }else if((e.shiftKey) && (e.keyCode == 121)){
+                //Shift+F10
+            } else if ((e.shiftKey) && (e.keyCode == 121)) {
                 return false;
-            //Ctrl+U
-            }else if((e.ctrlKey) && (e.keyCode == 85)){
+                //Ctrl+U
+            } else if ((e.ctrlKey) && (e.keyCode == 85)) {
                 return false;
             }
         };
-        
-        document.oncontextmenu = function (){
+        document.oncontextmenu = function () {
             return false;
         }
     }
-        var h = window.innerHeight,
+    var h = window.innerHeight,
         w = window.innerWidth;
     window.onresize = function () {
         if (h != window.innerHeight || w != window.innerWidth) {
